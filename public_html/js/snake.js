@@ -2,6 +2,8 @@ var snake;
 var snakeLength;
 var snakeSize;
 
+var food;
+
 var context;
 var screenWidth;
 var screenHeight; 
@@ -9,7 +11,6 @@ var screenHeight;
 gameInitialize();
 snakeInitialize();
  setInterval(gameLoop, 1000/30);
-
 
 function gameInitialize() {
     var canvas = document.getElementById("game-screen");
@@ -32,8 +33,6 @@ function gameDraw() {
     context.fillStyle = "rgb(255, 0, 47)";
     context.fillRect(0,0, screenWidth, screenHeight);
 }
-
-
 
 function snakeInitialize() {
     snake = [];
@@ -66,3 +65,12 @@ function snakeUpdate() {
     snakeTail.y = snakeHeadY;
     snake.unshift(snakeTail);
 }
+
+function foodInitialize() {
+    
+}
+
+function foodDraw() {
+    
+}
+
