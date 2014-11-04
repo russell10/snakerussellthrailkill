@@ -84,7 +84,10 @@ function snakeUpdate() {
     var snakeHeadX = snake[0].x;
     var snakeHeadY = snake[0].y;
     
-    if(snakeDirection == "dow n") {
+   
+    checkFoodCollisions(snakeHeadX, snakeHeadY);
+   
+    if(snakeDirection == "down") {
         snakeHeadY++;
     }
     
@@ -125,14 +128,44 @@ function setFoodPosition() {
     food.y = Math.floor(randomY / snakeSize);
 }
 
+
 function keyboardHandler(event) {
     console.log(event);
-    if(event.keyCode == "39" && snakeDirection != "left") {
+    
+    if(event.keyCode == "39" && snakeDirection !== "left") {
         snakeDirection = "right";
     }
-    else if(event.keyCode == "40" && snakeDirection != "up") {
+    else if(event.keyCode == "40" && snakeDirection !== "up") {
         snakeDirection = "down";
+    }    
+    if (event.keyCode == "37" && snakeDirection !== "right") { 
+        snakeDirection = "right"
     }
+    else if (event.keyCode == "39" && snakeDIrection !== "down"){
+         snakeDirection = "up" 
+   }
 }
+/* -----------------------------------------------------------------------------
+ * Input Functions
+ * -----------------------------------------------------------------------------
+ */    
 
-    
+  
+
+
+
+/* -----------------------------------------------------------------------------
+ * Collision Handling
+ * -----------------------------------------------------------------------------
+ */
+
+
+function checkFoodCollisions(snakeHeadX, snakeHeadY){
+    if(snakeHeadX == food.x && snakeHeadY == food.y) {
+         console.log("Food Collisions");
+     }
+ }
+
+
+
+
